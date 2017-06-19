@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+
+    <meta HTTP-EQUIV="EXPIRES" CONTENT="-1">
+    <title>Computing Science 309 Warehouse Wars</title>
+    <script language="javascript" src="jsFiles/jquery-3.1.1.min.js">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/styles.css">
+    <script language="javascript" src="jsFiles/client.js">
+    </script>
+    <script language="javascript" src="userInfo.js">
+    </script>
+    <link rel="shortcut icon" type="image/png" href="icons/face-cool-24.png" />
+</head>
+
+<body>
+
+
+<audio id="rolly" autoplay="autoplay" controls loop style="display:none">
+    <source src="bg-music.mp3" type="audio/mp3">
+</audio>
+
+
+
+<div id="content">
+  <div class="bg"></div>
+
+
+    <center>
+        <img id="head" src="icons/header.png" />
+        <br>
+        <br>
+        <br>
+        <img src="https://cdn3.iconfinder.com/data/icons/multimedia-white-with-multicolor-circle-background/2048/Mute-512.png" width="2%" onclick="muteUnMute();" />
+        <br>
+        <br>
+        <tr><input type="button" id="logout" class="btn" value="Logout" style="display:none" /></tr>
+        <tr><input type="button" id="profileDisplay" class="btn" value="Profile" style="display:none" /></tr>
+        <div id="rooms" style="display: none;">
+				
+					<input type="text" id="newWorld" class = "inputForm"  placeholder="Enter game room name" autofocus/>&nbsp;&nbsp;<input type="button" class="btn" id="sendButton" value="Create" disabled='disabled' onclick="sendNew();" />
+				<br>
+				<div id="errors"> </div>
+				<br><br>
+				<h1 style="color:white"> Game Rooms </h1>
+				<div id="messages" ></div>
+                <center>
+				<table class="top3" style="display:none">
+                <tr>
+                <td>
+                    <p>Personal High Scores</p>
+                </td>
+                </tr>
+                            <tr>
+                                <td><input type="text" id="s1" class="hs" value="" placeholder="Highest Score" readonly ></input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" id="s2" class="hs" value="" placeholder="2nd Highest Score" readonly></input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" id="s3" class="hs" value="" placeholder="3rd Highest Score" readonly></input>
+                                </td>
+                            </tr>
+
+                        </table>
+                </center>
+			</div>
+
+        <table id="gameDisplay" style="display: none;"  >
+            <tr>
+                <td id="game">
+                    <div id="stage" > </div>
+                </td>
+                <td id="controls">
+                    <center>
+                        <p id='time'></p>
+                        <input type="text" id="timeInSec" value="0" style="display:none" />
+                        <input type="text" id="scored" value="0" style="display:none" />
+                        <p id='status'></p>
+                        <h2 id="ctrl">Controls</h2>
+                        <table class="controls" >
+								<tr>
+									<td><img src="icons/north_west.svg" id="113" class="btn" onclick="move(id)"/></td>
+									<td><img src="icons/north.svg" id="119" class="btn" onclick="move(id)"/></td>
+									<td><img src="icons/north_east.svg" id="101"  class="btn" onclick="move(id)"/></td>
+								</tr>
+								<tr>
+									<td><img src="icons/west.svg" id="97" class="btn" onclick="move(id)"/></td>
+									<td>&nbsp;</td>
+									<td><img src="icons/east.svg" id="100" class="btn" onclick="move(id)"/></td>
+								</tr>
+								<tr>
+									<td><img src="icons/south_west.svg" id="122" class="btn" onclick="move(id)"/></td>
+									<td><img src="icons/south.svg" id="120" class="btn" onclick="move(id)" /></td>
+									<td><img src="icons/south_east.svg" class="btn" id="99" onclick="move(id)""/></td>
+								</tr>
+							</table>
+
+
+                        
+
+                    </center>
+                    <td id="leg">
+							<table class="legend" cellpadding="7">
+								<h2 id="plrs">Your Avatar:</h2>
+									<tr><td> <img src="icons/faint.png" style="display:none" id="p0" height="35" width="35" /> </td></tr>
+									<tr><td> <img src="icons/gentleman.png" style="display:none" id="p1" height="35" width="35" /> </td></tr>
+									<tr><td> <img src="icons/nerd.png" style="display:none" id="p2" height="35" width="35" /> </td></tr>
+									<tr><td> <img src="icons/angry.png" style="display:none" id="p3" height="35" width="35" /> </td></tr>
+									<tr><td> <img src="icons/angry2.png" style="display:none" id="p4" height="35" width="35" /> </td></tr>
+									<tr><td> <img src="icons/wink.png" style="display:none" id="p5" height="35" width="35" /> </td></tr>
+									<tr><td> <img src="icons/crying.png" style="display:none" id="p6" height="35" width="35" /> </td></tr>
+									<tr><td> <img src="icons/harry-potter.png" style="display:none" id="p7" height="35" width="35" /> </td></tr>
+									<tr><td> <img src="icons/happy.png" style="display:none" id="p8" height="35" width="35" /> </td></tr>
+                                    </table>
+                        </td>
+                </td>
+                <td>
+                <button id="btnQuit" type="submit" class="btn-game" onclick="quit();">Quit</button>
+				
+                        <p id='score'>Score: 0</p>
+                </td>
+            </tr>
+        </table>
+
+
+
+        <tr><input type="text" id="usernameDisplay" value="" style="display:none"></tr>
+        <tr><input type="text" id="operation" style="display:none"></tr>
+
+
+        <div id="loginDiv">
+            <input type="text" id="user" placeholder="Enter Username" autofocus required pattern="[A-Za-z0-9]+" title="Letters and Numbers Only"></input>
+            </p>
+            <input type="password" id="password" placeholder="Enter Password" required title="Enter a valid password"></input>
+            </p>
+            <p> <input type="button" onclick="login();" class="btn" value="Login" id="login" /></p>
+            <br>
+            <p>Not a member?</p>
+            <input type="button" id="register" class="btn" value="Register" />
+
+        </div>
+        <table id="hiscores" style="">
+            <tr>
+                <td>
+                    <p>Top 10 High Scores</p>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text" id="t1" value="" class="hs" placeholder="High Score" readonly></input>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text" id="t2" value="" class="hs" placeholder="High Score" readonly></input>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text" id="t3" value="" class="hs" placeholder="High Score" readonly></input>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text" id="t4" value="" class="hs" placeholder="High Score" readonly></input>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text" id="t5" value="" class="hs" placeholder="High Score" readonly></input>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text" id="t6" value="" class="hs" placeholder="High Score" readonly></input>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text" id="t7" value="" class="hs" placeholder="High Score" readonly></input>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text" id="t8" value="" class="hs" placeholder="High Score" readonly></input>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text" id="t9" value="" class="hs" placeholder="High Score" readonly></input>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text" id="t10" value="" class="hs" placeholder="High Score" readonly></input>
+                </td>
+            </tr>
+
+        </table>
+
+        <div id="registerDiv" style="display:none">
+
+                <p>Register</p>
+		
+                <p><input type="text" name="user" id="username" placeholder="Enter Username" required pattern="[A-Za-z0-9]+" title="Letters and Numbers Only" /></p>
+                <p><input type="password" name="password" id="password2" placeholder="Enter Password" required/></p>
+                <p><input type="text" name="name" id="name" placeholder="Enter Name" required pattern="[A-Za-z]+" title="Letters Only"/></p>
+                <p><input type="email" name="email" id="email" placeholder="Enter Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Enter Valid Email"/></p>
+
+                <p><input type="button" class="btn" id="signUp" value="Sign Up" /></p>
+                <br>
+                <p>Already registered?</p>
+                <input type="button" class="btn" id="goBack" value="Go Back" />
+
+
+        </div>
+
+        <div id="profileDiv" style="display:none">
+
+                <p>[Edit Profile]</p>
+                <p> <input type="text" name="user3" id="user3" value="" placeholder="Enter Username" disabled/></p>
+                <p> <input type="password" name="password" id="password3" placeholder="Enter Password" value="" required /></p>
+                <p> <input type="text" name="name" id="name2" value="" placeholder="Enter Name" required pattern="[A-Za-z]+" title="Letters Only"/></p>
+                <p> <input type="email" name="email" id="email2" value="" placeholder="Enter Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Enter Valid Email"/></p>
+
+                <p> <input type="button" id="editProfile" class="btn" value="Make Changes" /></p>
+                <br>
+                <input type="button" id="goBackGame" class="btn" value="Home" />
+
+   
+        </div>
+
+    </td>
+    </tr>
+    </table>
+    </center>
+</div>
+</body>
+
+</html>

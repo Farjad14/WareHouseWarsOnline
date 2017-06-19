@@ -1,0 +1,231 @@
+.btn {
+  background: #e60e0e;
+  background-image: -webkit-linear-gradient(top, #e60e0e, #2a343b);
+  background-image: -moz-linear-gradient(top, #e60e0e, #2a343b);
+  background-image: -ms-linear-gradient(top, #e60e0e, #2a343b);
+  background-image: -o-linear-gradient(top, #e60e0e, #2a343b);
+  background-image: linear-gradient(to bottom, #e60e0e, #2a343b);
+  -webkit-border-radius: 21;
+  -moz-border-radius: 21;
+  border-radius: 21px;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 17px;
+  padding: 9px;
+  height: 50px;
+  width: 150px;
+  text-decoration: none;
+}
+
+
+.btn:hover {
+  background: #c3d4de;
+  background-image: -webkit-linear-gradient(top, #c3d4de, #d93434);
+  background-image: -moz-linear-gradient(top, #c3d4de, #d93434);
+  background-image: -ms-linear-gradient(top, #c3d4de, #d93434);
+  background-image: -o-linear-gradient(top, #c3d4de, #d93434);
+  background-image: linear-gradient(to bottom, #c3d4de, #d93434);
+  text-decoration: none;
+}
+
+.btn-game {
+  background: #5c4ae6;
+  background-image: -webkit-linear-gradient(top, #5c4ae6, #38576b);
+  background-image: -moz-linear-gradient(top, #5c4ae6, #38576b);
+  background-image: -ms-linear-gradient(top, #5c4ae6, #38576b);
+  background-image: -o-linear-gradient(top, #5c4ae6, #38576b);
+  background-image: linear-gradient(to bottom, #5c4ae6, #38576b);
+  -webkit-border-radius: 21;
+  -moz-border-radius: 21;
+  border-radius: 21px;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 17px;
+  padding: 9px;
+  text-decoration: none;
+}
+
+.btn-game:hover {
+  background: #c3d4de;
+  background-image: -webkit-linear-gradient(top, #c3d4de, #d93434);
+  background-image: -moz-linear-gradient(top, #c3d4de, #d93434);
+  background-image: -ms-linear-gradient(top, #c3d4de, #d93434);
+  background-image: -o-linear-gradient(top, #c3d4de, #d93434);
+  background-image: linear-gradient(to bottom, #c3d4de, #d93434);
+  text-decoration: none;
+}
+
+#messages{
+    color:white;
+}
+
+input { 
+	width: 15%; 
+	margin-bottom: 10px; 
+	background: rgba(0,1,0,0.3);
+	text-shadow: 1px 1px 1px rgba(0,1,0,0.3);
+	border: 1px solid rgba(2,0,0,0.3);
+	border-radius: 4px;
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #ff0;
+	
+}
+input[type=text] { 
+  background: rgba(0,1,0,0.3);
+  text-shadow: 1px 1px 1px rgba(0,1,0,0.3);
+  border: 1px solid rgba(2,0,0,0.3);
+  border-radius: 4px;
+  border: none;
+  outline: solid;
+  padding: 10px;
+  font-size: 13px;
+  font-color: #ff0;
+  outline-color: white;
+  
+}
+
+input[type=password] { 
+  background: rgba(0,1,0,0.3);
+  text-shadow: 1px 1px 1px rgba(0,1,0,0.3);
+  border: 1px solid rgba(2,0,0,0.3);
+  border-radius: 4px;
+  border: none;
+  outline: solid;
+  padding: 10px;
+  font-size: 13px;
+  font-color: #ff0;
+  outline-color: white;
+  
+}
+
+input[type=email] { 
+  background: rgba(0,1,0,0.3);
+  text-shadow: 1px 1px 1px rgba(0,1,0,0.3);
+  border: 1px solid rgba(2,0,0,0.3);
+  border-radius: 4px;
+  border: none;
+  outline: solid;
+  padding: 10px;
+  font-size: 13px;
+  font-color: #ff0;
+  outline-color: white;
+  
+}
+
+.hs { 
+	width: 70%; 
+	margin-bottom: 10px; 
+	background: rgba(0,1,0,0.3);
+	text-shadow: 1px 1px 1px rgba(0,1,0,0.3);
+	text-align: center;
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 15px;
+	color: #ff0;
+	
+}
+
+#head{
+    max-width: 50%;
+    max-height: 50%;
+}
+
+#stage table { 
+    margin-left: auto;
+    margin-right: auto;
+	background: white;
+	border-radius: 15px;
+	border: 3px solid black;
+	outline: none;
+	padding: 5px;
+	
+	
+}
+
+#gameDisplay { 
+	outline: none;
+	color: white;
+	
+	
+}
+
+
+#content {
+	font-family: Courier New;
+
+	text-align:center;
+	
+}
+body {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("http://kingpin.info/images/2017-01/dm_ww-2.jpg");
+  background-repeat: repeat;
+  background-position: 100 0;
+  background-size: cover;
+/*adjust s value for speed*/
+  animation: content 1000s linear infinite;
+}
+
+@keyframes content {
+  from {
+    background-position: 0 0;
+  }
+/*use negative width if you want it to flow right to left else and positive for left to right*/
+  to {
+    background-position: -10000px 0;
+  }
+}
+
+
+.legend{
+    font-size:45px;
+}
+
+@media (max-width:768px)  {
+    #ctrl{
+        display:none;
+    }
+    .legend img{
+        height:25px;
+        width:25px;
+    }
+    #stage img{
+        height:20px;
+        width:20px;
+    }
+    #game, #controls{
+        display:block;
+    }
+    .btn, .btn-game{
+        height: 60px;
+        width: 120px;
+        font-size: 20px;
+    }
+    #newWorld {
+        height: 50px;
+        width: 200px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width:425px)  {
+#rooms .btn, .btn-game{
+        height: 60px;
+        width: 300px;
+        font-size: 40px;
+    }
+    #newWorld {
+        height: 60px;
+        width: 320px;
+        font-size: 25px;
+    }
+
+}
